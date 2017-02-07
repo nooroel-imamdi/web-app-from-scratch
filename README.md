@@ -34,5 +34,34 @@ Laadtijd wordt vanuit twee perspectieven gezien: vanuit de server én de eindgeb
 Het gemak van de frameworks, denk aan knip-plak-werk van code, zorgt ervoor dat steeds minder programmeurs de moeite nemen om de scripttaal JavaScript te leren.
 
 
+## JavaScript Single Page Web App
 
-- Bron: http://docplayer.nl/5072853-Javascript-frameworks.html
+###Definitie
+Een Single Page Application (SPA) is een applicatie/site waarbij de pagina nooit in zijn geheel herlaadt. De gebruikers ziet alles op één pagina gebeuren. Het gaat altijd om onderdelen van de applicatie/site die worden geladen en getoond.
+
+###Voordelen
+
+####Slechts relevante onderdelen herladen
+Bij het herladen van traditionele websites worden alle onderdelen van de pagina herladen. In veel gevallen zijn de meeste onderdelen ongewijzigd herladen. In het geval van een SPA worden alleen die specifieke onderdelen herladen die ook echt veranderen.
+
+####Besparing dataverkeer en reactietijd
+Aangezien slechts een gedeelte wordt herladen, waar daarmee de dataverkeer en reactietijd beperkt. Prettig voor gebruikers en gunstig voor de server.
+
+####Strikte scheiding voorkant (frontend) en achterkant (backend/server)
+Vele SPA’s worden geschreven met een strikte scheiding tussen de frontend en backend/server. De communicatie vindt plaats via een JSON API. Een groot voordeel als er een tweede applicatie gebouwd moeten worden, zoals een native app.
+
+###Nadelen
+
+####Traditionele internetverkeer is afgestemd op multipage
+Zoekmachines gaan nog uit van het traditioneel herladen van pagina’s. Op die manier crawlen ze dan ook door de door hun bezochte websites.
+
+####Omgeving verschillen
+De SPA voert de code grotendeels uit op de machine van de gebruiker. Deze omgevingen kan echter enorm verschillen. dit moet dan ook uitgebreid getest worden.
+
+####Geheugengebruik
+Aangezien de SPA in vergelijking met de traditionele herladende pagina’s continue blijft open staan, kan de geheugen oplopen. Deze wordt namelijk niet meer bij elke pagina geleegd. 
+
+
+######Bronnen:
+- http://docplayer.nl/5072853-Javascript-frameworks.html
+- https://www.oberon.nl/whitepapers/single-page-applications

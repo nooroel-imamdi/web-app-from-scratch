@@ -17,20 +17,18 @@
 
 	var sections ={
 		toggle: function(route){
-			console.log(route);
-			var activeSection = document.querySelector(route);
-			var viewSelections = document.getElementsByClassName('view');
+			var activeView = document.querySelector(route);
+			var viewElements = document.getElementsByClassName('view');
 
-			for (var i = 0; i < viewSelections.length; i++) {
-			 	if(viewSelections[i].id == activeSection.id){
-			 		viewSelections[i].classList.remove('hide');
+			for (var i = 0; i < viewElements.length; i++) {
+			 	if(viewElements[i].id == activeView.id){
+			 		viewElements[i].classList.remove('hide');
 			 	} else {
-			 		viewSelections[i].classList.add('hide');
+			 		viewElements[i].classList.add('hide');
 			 	}
 			} 
 		},
 	};
 
 	app.init();
-
 })();

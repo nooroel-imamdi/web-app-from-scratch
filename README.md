@@ -1,5 +1,9 @@
 # Web App from Scratch
 
+## Live - Week 1
+
+- http://nooroel.imamovicdesign.com/minor/web-app-from-scratch/wk1/
+
 ## JavaScript frameworks/libaries
 
 ### Definitie

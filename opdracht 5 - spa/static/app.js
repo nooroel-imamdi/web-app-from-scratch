@@ -17,7 +17,7 @@
 
 	var sections ={
 		toggle: function(route){
-			console.log(route);
+			console.log(route); <<--delete tis when not in use
 			var activeSection = document.querySelector(route);
 			var viewSelections = document.getElementsByClassName('view');
 

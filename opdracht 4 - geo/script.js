@@ -57,7 +57,7 @@
         },
 
         // Controleer de locaties en verwijs naar een andere pagina als we op een locatie zijn
-        checkPocations: function (events){
+        checkLocations: function (events){
             // Liefst buiten google maps om... maar helaas, ze hebben alle coole functies
             for (var i = 0; i < locaties.length; i++) {
                 var locatie = {coords:{latitude: locaties[i][3],longitude: locaties[i][4]}};

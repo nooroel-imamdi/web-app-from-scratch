@@ -18,13 +18,13 @@
 	var sections ={
 		toggle: function(route){
 			var activeSection = document.querySelector(route);
-			var viewSelections = document.getElementsByClassName('view');
+			var showSection = document.getElementsByClassName('show');
 
-			for (var i = 0; i < viewSelections.length; i++) {
-			 	if(viewSelections[i].id == activeSection.id){
-			 		viewSelections[i].classList.remove('hide');
+			for (var i = 0; i < showSection.length; i++) {
+			 	if(showSection[i].id == activeSection.id){
+			 		showSection[i].classList.remove('hide');
 			 	} else {
-			 		viewSelections[i].classList.add('hide');
+			 		showSection[i].classList.add('hide');
 			 	}
 			} 
 		},

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Het Rijksmuseum</title>
+	<link rel="stylesheet" href="static/css/style.css">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Oswald:600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+	<nav>
+		<h1>
+			Rijksmuseum
+		</h1>
+		<!-- <ul>
+			<li><a href="#start-screen" title="Startscherm">Overzicht</a></li>
+			<li><a href="#best-practices" title="Beste practices">Beste practices</a></li>
+		</ul> -->
+		<!-- <ul>
+			<li><a href="">Home</a></li>
+			<li><a href="#nooroel">Who is C'thulhu?</a></li>
+			<li><a href="#why">Why is C'thulhu</a></li>
+
+		</ul> -->
+
+	</nav>
+	<section id="zoeken">
+		<form id="search">
+			<input type="text" name="" id="user-input" placeholder="Zoek je favoriete kunstenaar. Bijvoorbeeld Rembrandt" autofocus="">
+			<button type="submit" name="" id="search-btn">Zoek</button>
+		</form>
+		<section id="overview"></section>
+	</section>
+	<section id="detail"></section>
+	<!-- <section id="start-screen" class="show hide"> -->
+		<!-- <h1>My first Web App</h1> -->
+		<!-- <form id="search">
+			<input type="text" name="" id="user-input" placeholder="Zoek je favoriete kunstenaar">
+			<button type="submit" name="" id="search-btn">Zoek</button>
+		</form>
+		<section id="output-art"></section>
+
+	</section>
+	<section id="best-practices" class="show hide">
+		 -->
+	<!-- </section> -->
+	<section id="nooroel"></section>
+	<section id="{{id}}"></section>
+	
+	<script id="detail-template" type="text/x-handlebars-template">
+		{{#each artObjects}}
+			<article>
+				<img src="{{headerImage.url}}" />
+				<h1><a href="{{id}}">{{longTitle}}</a></h1>
+			</article>
+		{{/each}}
+	</script>
+
+	<script id="overview-template" type="text/x-handlebars-template">
+		{{#each artObjects}}
+		<article>
+			<img src="{{webImage.url}}" />
+			<h1><a href="{{id}}">{{title}}</a></h1>
+			<p>Kunstenaar: {{principalOrFirstMaker}}</p>
+		</article>
+		{{/each}}
+	</script>
+
+	<script src="static/js/handlebars-v4.0.5.js"></script>
+	<script src="https://rawgit.com/jgallen23/routie/master/dist/routie.min.js"></script>
+	<script src="static/js/app.js"></script>
+</body>
+</html>

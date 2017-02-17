@@ -4,6 +4,11 @@
 
 - http://nooroel.imamovicdesign.com/minor/web-app-from-scratch/wk1/
 
+## Live - Week 2
+
+- http://nooroel.imamovicdesign.com/minor/web-app-from-scratch/wk2/
+
+
 ## JavaScript frameworks/libaries
 
 ### Definitie

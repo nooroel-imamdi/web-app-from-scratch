@@ -78,6 +78,7 @@
 			dataRijksmuseum.init(query);
 			// renderHTML.init(query);
 			renderOverview.init(query);
+			renderDetail.init(query);
 			if (query.length > 0) {
 				overviewOutput.classList.remove('hide');
           		resultsDetail.classList.add('hide');
@@ -99,6 +100,7 @@
 			       var data = JSON.parse(request.responseText);
 			       renderOverview.init(data);
 			       renderDetail.init(data);
+			       
 			   } else {
 			       // We reached our target server, but it returned an error
 			   }

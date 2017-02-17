@@ -104,9 +104,6 @@ section#best-practices h2{
 	margin-top: 2em;
 	text-align: left;
 }*/
-.hide{
-	display: none;
-}
 section#overview{
 	width: 85%;
 	margin: 5em auto;
@@ -152,6 +149,9 @@ article p{
 	font-size: .8em;
 	margin: .5em 0 .5em;
 	padding: 0;
+}
+.hide{
+	display: none !important;
 }
 img{
 	width: 100%;

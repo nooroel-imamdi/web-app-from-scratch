@@ -20,6 +20,16 @@
 	//     '#nooroel': function() {
 	//       console.log("Ja hoor");
 	//     },
+	
+	// Jet HTML moet je dan zelf de url > href=#(pagina-waar-je-nu-bent/#{{id}} doen dan kan je dit doen:
+	routie({
+                'app__list': function() {
+                    sections.toggle(window.location.hash);
+                },
+                'app__list/:id': function(id) {
+                    getHash.name(id);
+                }
+            });
 
 	// });
 
@@ -115,26 +125,22 @@
 	// 		// document.getElementById('art-template').innerHTML = Handlebars.compile(document.getElementById('output-art').innerHTML)(data);
 	// 	}
 	// };
-	var renderOverview = {
-		init: function(data){
+	var renderHTML = {
+		overview: function(data){
 			var rawTemplating = document.getElementById("overview-template").innerHTML;
 			var compiledTemplate = Handlebars.compile(rawTemplating);
 			var ourGeneratedHTML = compiledTemplate(data);
 
 			var outputArt = document.getElementById("overview");
 			outputArt.innerHTML = ourGeneratedHTML;
+		},
+		detail: function {
+		// zoiets maken ?? 
+		// maakt het misshcien overzichtelijker je herhaalt nu twee dingen voor de handlebars
+		// OID ik weet het zelf ook niet zo goed maarja
 		}
 	};
-	var renderDetail = {
-		init: function(data){
-			var rawTemplating = document.getElementById("detail-template").innerHTML;
-			var compiledTemplate = Handlebars.compile(rawTemplating);
-			var ourGeneratedHTML = compiledTemplate(data);
 
-			var outputArt = document.getElementById("detail");
-			outputArt.innerHTML = ourGeneratedHTML;
-		}
-	};
 	var buildUrl = function(type, id) {
 		var queryUrl = "";
 

@@ -21,19 +21,11 @@
 			<button type="submit" name="" id="search-btn">Zoek</button>
 		</form>
 		<section id="overview" class="hide"></section>
+		<section id="detail" class="hide"></section>
 	</section>
-	<section id="detail" class="hide"></section>
+	
 
 	
-	<script id="detail-template" type="text/x-handlebars-template">
-		{{#each artObjects}}
-			<article>
-				<img src="{{headerImage.url}}" />
-				<h1>{{longTitle}}</h1>
-			</article>
-		{{/each}}
-	</script>
-
 	<script id="overview-template" type="text/x-handlebars-template">
 		{{#each artObjects}}
 		<article>
@@ -42,6 +34,13 @@
 			<p>Kunstenaar: {{principalOrFirstMaker}}</p>
 		</article>
 		{{/each}}
+	</script>
+	
+	<script id="detail-template" type="text/x-handlebars-template">
+		<article>
+			<img src="{{webImage.url}}" />
+			<h1>{{title}}</h1>
+		</article>
 	</script>
 
 	<script src="static/js/handlebars-v4.0.5.js"></script>

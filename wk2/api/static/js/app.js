@@ -3,9 +3,6 @@
 	var overviewOutput = document.getElementById('overview');
     var resultsDetail = document.getElementById('detail');
 
-    var rawTemplating = document.getElementById("detail-template").innerHTML;
-    var compiledTemplate = Handlebars.compile(rawTemplating);
-
 	var app = {
 		init: function(){
 			routes.init();
@@ -15,7 +12,6 @@
 			// renderHTML.init();
 			renderOverview.init();
 			renderDetail.init();
-
 		}	
 	};
 
@@ -23,52 +19,23 @@
 
 	var routes = {
 		init: function(){
-			// window.addEventListener("hashchange",function(){
-			// 	sections.toggle(location.hash);
-			// });
 			routie({
 				'': function() {
 				    routie('zoeken');
-				    // getTotalSpan("random");
 				    console.log('Home');
 			    },
-
-			    // 'zoeken': function() {
-			    // 	console.log("zoeken geblazen");
-			    // },
-			    // '*': function() {
-			    // 	console.log("zoeken geblazen");
-			    // },
 			    'schilder/:id': function(id) {
 		            var schilder = schilders.find(function (schilder) {
             		return schilder.id === id;
           		});
 
-          		console.log(schilder);
-          		
-          		resultsDetail.innerHTML = compiledTemplate(schilder);
-
-          		
           		overviewOutput.classList.add('hide');
           		resultsDetail.classList.remove('hide');
 		        }
 			});
 		}
 	};
-	// var sections = {
-	// 	toggle: function(route){
-	// 		var activeSection = document.querySelector(route);
-	// 		var showSection = document.getElementsByClassName('show');
 
-	// 		for (var i = 0; i < showSection.length; i++) {
-	// 		 	if(showSection[i].id == activeSection.id){
-	// 		 		showSection[i].classList.remove('hide');
-	// 		 	} else {
-	// 		 		showSection[i].classList.add('hide');
-	// 		 	}
-	// 		} 
-	// 	},
-	// };
 	var search = {
 		init: function(){
 			document.getElementById("search-btn").addEventListener('click', this.userInput);
@@ -100,7 +67,7 @@
 			       var data = JSON.parse(request.responseText);
 			       renderOverview.init(data);
 			       renderDetail.init(data);
-			       
+
 			   } else {
 			       // We reached our target server, but it returned an error
 			   }

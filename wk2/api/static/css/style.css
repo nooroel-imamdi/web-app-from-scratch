@@ -50,22 +50,7 @@ nav ul li a{
 	text-decoration: none;
 	display: inline-block;
 }
-/*section#start-screen{
-	width: 100%;
-	min-height: 100%;
-	background: #64D7D7;
-}
-section#start-screen h1{
-	margin: 1em 0 0;
-	padding: 20% 0 0;
-	color: #1E3746;
-	font-size: 1.2em;
-	text-align: center;
-}*/
 form{
-	/*width: 50%;*/
-    /* display: block; */
-    /* margin: 4em auto 0; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -96,14 +81,6 @@ button[type="submit"]{
 button[type="submit"]:visited{
 	color: #414141;
 }
-/*section#best-practices{
-	width: 40%;
-	margin: 0 auto;
-}
-section#best-practices h2{
-	margin-top: 2em;
-	text-align: left;
-}*/
 section#overview{
 	width: 85%;
 	margin: 5em auto;
@@ -113,13 +90,19 @@ section#overview{
 	flex-wrap: wrap;
 	align-content: center;
 }
-article{
+section#overview article{
 	position: relative;
 	background: #fff;
 	width: 32%;
 	padding: 1em;
 	margin: 0 0 1em;
 	box-sizing: border-box;
+}
+section#detail article{
+	position: relative;
+	background: #fff;
+	width: 50%;
+	margin: 2em auto 0;
 }
 article h1{
 	margin-bottom: 0;

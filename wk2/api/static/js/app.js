@@ -1,5 +1,10 @@
 (function (){
 	'use strict';
+	var overviewOutput = document.getElementById('overview');
+    var resultsDetail = document.getElementById('detail');
+
+    var rawTemplating = document.getElementById("detail-template").innerHTML;
+    var compiledTemplate = Handlebars.compile(rawTemplating);
 
 	var app = {
 		init: function(){
@@ -13,15 +18,8 @@
 
 		}	
 	};
-	// routie({
-	// 	'': function() {
-	//       console.log("screw you guys, I'm going");
-	//     },
-	//     '#nooroel': function() {
-	//       console.log("Ja hoor");
-	//     },
 
-	// });
+	var schilders = [];
 
 	var routes = {
 		init: function(){
@@ -31,17 +29,28 @@
 			routie({
 				'': function() {
 				    routie('zoeken');
-				    getTotalSpan("random");
+				    // getTotalSpan("random");
+				    console.log('Home');
 			    },
 
-			    'zoeken': function() {
-			    	console.log("zoeken geblazen");
-			    },
-			    '*': function() {
-			    	console.log("zoeken geblazen");
-			    },
+			    // 'zoeken': function() {
+			    // 	console.log("zoeken geblazen");
+			    // },
+			    // '*': function() {
+			    // 	console.log("zoeken geblazen");
+			    // },
 			    'schilder/:id': function(id) {
-		            buildUrl("detail", id);
+		            var schilder = schilders.find(function (schilder) {
+            		return schilder.id === id;
+          		});
+
+          		console.log(schilder);
+          		
+          		resultsDetail.innerHTML = compiledTemplate(schilder);
+
+          		
+          		overviewOutput.classList.add('hide');
+          		resultsDetail.classList.remove('hide');
 		        }
 			});
 		}
@@ -69,6 +78,11 @@
 			dataRijksmuseum.init(query);
 			// renderHTML.init(query);
 			renderOverview.init(query);
+			if (query.length > 0) {
+				overviewOutput.classList.remove('hide');
+          		resultsDetail.classList.add('hide');
+          	}
+			
 		}
 	};
 	var dataRijksmuseum = {
@@ -83,7 +97,6 @@
 			   if (request.status >= 200 && request.status < 400) {
 			       // Success!
 			       var data = JSON.parse(request.responseText);
-			       // renderHTML.init(data);
 			       renderOverview.init(data);
 			       renderDetail.init(data);
 			   } else {
@@ -101,20 +114,7 @@
 
 		},
 	};
-	// var renderHTML = {
-	// 	init: function(data){
-	// 		var rawTemplating = document.getElementById("art-template").innerHTML;
-	// 		var compiledTemplate = Handlebars.compile(rawTemplating);
-	// 		var ourGeneratedHTML = compiledTemplate(data);
 
-	// 		var outputArt = document.getElementById("output-art");
-	// 		outputArt.innerHTML = ourGeneratedHTML;
-
-	// 		// console.log(data)
-
-	// 		// document.getElementById('art-template').innerHTML = Handlebars.compile(document.getElementById('output-art').innerHTML)(data);
-	// 	}
-	// };
 	var renderOverview = {
 		init: function(data){
 			var rawTemplating = document.getElementById("overview-template").innerHTML;
@@ -134,11 +134,6 @@
 			var outputArt = document.getElementById("detail");
 			outputArt.innerHTML = ourGeneratedHTML;
 		}
-	};
-	var buildUrl = function(type, id) {
-		var queryUrl = "";
-
-		
 	};
 
 	app.init();

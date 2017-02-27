@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Het Rijksmuseum</title>
+	<link rel="stylesheet" href="static/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+	<nav>
+		<h1>
+			Rijksmuseum
+		</h1>
+	</nav>
+	<section id="zoeken">
+		<form id="search-field">
+			<input type="text" name="" id="user-input" placeholder="Zoek je favoriete kunstenaar. Bijvoorbeeld Rembrandt" autofocus="">
+			<button type="submit" name="" id="search-btn">Zoek</button>
+		</form>
+		<section id="overview" class="hide"></section>
+		<section id="detail" class="hide"></section>
+	</section>
+	
+
+	
+	<script id="overview-template" type="text/x-handlebars-template">
+		{{#each artObjects}}
+		<article>
+			<img src="{{webImage.url}}" />
+			<h1><a href="#paintings/{{id}}">{{title}}</a></h1>
+			<p>Kunstenaar: {{principalOrFirstMaker}}</p>
+		</article>
+		{{/each}}
+	</script>
+	
+	<script id="detail-template" type="text/x-handlebars-template">
+		<!-- {{#artObjects}} -->
+		<article>
+			<img src="{{webImage.url}}" data-schilder-id="{{id}}" />
+			<h1>{{title}}</h1>
+		</article>
+		<!-- {{/artObjects}} -->
+	</script>
+
+	<script src="static/js/handlebars-v4.0.5.js"></script>
+	<script src="static/js/routie.js"></script>
+	<script src="static/js/transparency.js"></script>
+	<script src="static/js/app.js"></script>
+</body>
+</html>

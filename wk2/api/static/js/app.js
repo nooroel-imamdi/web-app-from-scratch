@@ -10,8 +10,9 @@
 			dataRijksmuseum.init();
 			search.init();
 			// renderHTML.init();
-			renderOverview.init();
-			renderDetail.init();
+			// renderHTML.moreInfo();
+			// renderOverview.init();
+			// renderDetail.init();
 		}	
 	};
 
@@ -29,8 +30,10 @@
             		return schilder.id === id;
           		});
 
-          		overviewOutput.classList.add('hide');
-          		resultsDetail.classList.remove('hide');
+		        console.log(schilder);
+		        // resultsDetail.innerHTML = templateDetail(album);
+          		overviewOutput.classList.add("hide");
+          		resultsDetail.classList.remove("hide");
 		        }
 			});
 		}
@@ -38,17 +41,19 @@
 
 	var search = {
 		init: function(){
-			document.getElementById("search-btn").addEventListener('click', this.userInput);
+			document.getElementById("search-field").addEventListener("submit", this.userInput);
 		},
 		userInput: function(){
 			var query = document.getElementById("user-input").value;
 			dataRijksmuseum.init(query);
 			// renderHTML.init(query);
-			renderOverview.init(query);
-			renderDetail.init(query);
+			// renderOverview.init(query);
+			// renderDetail.init(query);
+			// renderHTML.init(query);
+
 			if (query.length > 0) {
-				overviewOutput.classList.remove('hide');
-          		resultsDetail.classList.add('hide');
+				overviewOutput.classList.remove("hide");
+          		resultsDetail.classList.add("hide");
           	}
 			
 		}
@@ -65,8 +70,12 @@
 			   if (request.status >= 200 && request.status < 400) {
 			       // Success!
 			       var data = JSON.parse(request.responseText);
-			       renderOverview.init(data);
-			       renderDetail.init(data);
+			       // renderOverview.init(data);
+			       // renderDetail.init(data);
+			       renderHTML.init(data);
+			       renderHTML.moreInfo(data);
+
+			       console.log(data);
 
 			   } else {
 			       // We reached our target server, but it returned an error
@@ -84,7 +93,28 @@
 		},
 	};
 
-	var renderOverview = {
+	// var renderOverview = {
+	// 	init: function(data){
+	// 		var rawTemplating = document.getElementById("overview-template").innerHTML;
+	// 		var compiledTemplate = Handlebars.compile(rawTemplating);
+	// 		var ourGeneratedHTML = compiledTemplate(data);
+
+	// 		var outputArt = document.getElementById("overview");
+	// 		outputArt.innerHTML = ourGeneratedHTML;
+	// 	}
+	// };
+	// var renderDetail = {
+	// 	init: function(data){
+	// 		var rawTemplating = document.getElementById("detail-template").innerHTML;
+	// 		var compiledTemplate = Handlebars.compile(rawTemplating);
+	// 		var ourGeneratedHTML = compiledTemplate(data);
+
+	// 		var outputArt = document.getElementById("detail");
+	// 		outputArt.innerHTML = ourGeneratedHTML;
+	// 	}
+	// };
+
+	var renderHTML = {
 		init: function(data){
 			var rawTemplating = document.getElementById("overview-template").innerHTML;
 			var compiledTemplate = Handlebars.compile(rawTemplating);
@@ -92,10 +122,8 @@
 
 			var outputArt = document.getElementById("overview");
 			outputArt.innerHTML = ourGeneratedHTML;
-		}
-	};
-	var renderDetail = {
-		init: function(data){
+		},
+		moreInfo: function(data){
 			var rawTemplating = document.getElementById("detail-template").innerHTML;
 			var compiledTemplate = Handlebars.compile(rawTemplating);
 			var ourGeneratedHTML = compiledTemplate(data);
@@ -103,7 +131,7 @@
 			var outputArt = document.getElementById("detail");
 			outputArt.innerHTML = ourGeneratedHTML;
 		}
-	};
+	}
 
 	app.init();
 

@@ -16,7 +16,7 @@
 		</h1>
 	</nav>
 	<section id="zoeken">
-		<form id="search">
+		<form id="search-field">
 			<input type="text" name="" id="user-input" placeholder="Zoek je favoriete kunstenaar. Bijvoorbeeld Rembrandt" autofocus="">
 			<button type="submit" name="" id="search-btn">Zoek</button>
 		</form>
@@ -37,14 +37,17 @@
 	</script>
 	
 	<script id="detail-template" type="text/x-handlebars-template">
+		<!-- {{#artObjects}} -->
 		<article>
-			<img src="{{webImage.url}}" />
-			<h1>{{title}}</h1>
+			<img src="{{webImage.url}}" data-schilder-id="{{id}}" />
+			<h1>{{artObjects.i.title}}</h1>
 		</article>
+		<!-- {{/artObjects}} -->
 	</script>
 
 	<script src="static/js/handlebars-v4.0.5.js"></script>
 	<script src="static/js/routie.js"></script>
+	<script src="static/js/transparency.js"></script>
 	<script src="static/js/app.js"></script>
 </body>
 </html>

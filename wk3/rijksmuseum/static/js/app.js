@@ -1,27 +1,25 @@
 (function (){
 	'use strict';
-	var overviewOutput = document.getElementById('overview');
-    var resultsDetail = document.getElementById('detail');
+	var overviewOutput = document.getElementById('overview'),
+    	resultsDetail = document.getElementById('detail');
 
 	var app = {
 		init: function(){
-			routes.init();
+			routes.routie();
 			api.request();
 			search.submitEvent();
 		}	
 	};
 
-
-	var artists = [];
-
 	var routes = {
-		init: function(){
+		routie: function(){
 			routie({
 				'': function() {
 				    routie('zoeken');
 				    console.log('Home');
 			    },
 			    'paintings/:id': function(id) {
+			    	var artists = [];
 		            var paintings = artists.find(function (artists) {
             		return artists.id === id;
           		});
@@ -78,7 +76,6 @@
 			};
 
 			request.send();
-
 		},
 	};
 

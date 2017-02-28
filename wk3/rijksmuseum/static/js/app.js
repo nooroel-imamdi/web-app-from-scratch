@@ -44,6 +44,13 @@
 			if (query.length > 0) {
 				overviewOutput.classList.remove("hide");
           		resultsDetail.classList.add("hide");
+
+          		// var test = document.getElementsByClassName("search-userinput").innerHTML = "query";
+          		document.getElementById("search-userinput").innerHTML = "U zocht op " + "'" + query + "'";
+          		console.log(test);
+          	} else{
+          		document.getElementById("search-userinput").innerHTML = "U heeft het zoekveld leeggelaten.";
+          		overviewOutput.classList.add("hide");
           	}
 			
 		}

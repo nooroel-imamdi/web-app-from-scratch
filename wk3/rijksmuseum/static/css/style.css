@@ -1,4 +1,3 @@
-/* GLOBAl */
 html, body{
 	margin: 0;
 	width: 100%;
@@ -15,7 +14,7 @@ h5,
 h6{
 	font-family: 'Oswald', sans-serif;
 }
-p,ul{
+p, ul{
 	font-family: 'PT Serif', serif;
 }
 
@@ -34,7 +33,6 @@ nav h1{
 	font-size: 3em;
 }
 nav ul{
-	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	list-style-type: none;
 	padding: 0;
@@ -56,6 +54,10 @@ form{
     justify-content: center;
     align-items: center;
     margin: 5em 0 0;
+}
+section#search p{
+	text-align: center;
+	color: #bcc2c9;
 }
 input[type="text"]{
 	width: 70%;
@@ -98,11 +100,26 @@ section#overview article{
 	margin: 0 0 1em;
 	box-sizing: border-box;
 }
+@media only screen and (max-width: 40em) {
+	section#overview{
+		width: 90%;
+		display: block;
+
+	}
+	section#overview article{
+		width: 100%;
+	}
+}
 section#detail article{
 	position: relative;
 	background: #fff;
 	width: 50%;
 	margin: 2em auto 0;
+}
+@media only screen and (max-width: 40em) {
+	section#detail article{
+		width: 90%;
+	}
 }
 article h1{
 	margin-bottom: 0;

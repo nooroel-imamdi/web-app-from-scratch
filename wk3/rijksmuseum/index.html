@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Het Rijksmuseum</title>
 	<link rel="stylesheet" href="static/css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Oswald:600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Amiko:400,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
 </head>
 <body>
@@ -21,29 +21,28 @@
 		</form>
 
 		<p id="search-userinput"></p>
-		<section id="overview" class="hide"></section>
-		<section id="detail" class="hide"></section>
 	</section>
-	
 
+	<section id="overview" class="hide"></section>
+	<section id="detail" class="hide"></section>
 	
 	<script id="overview-template" type="text/x-handlebars-template">
 		{{#each artObjects}}
 		<article>
 			<img src="{{webImage.url}}" />
-			<h1><a href="#paintings/{{id}}">{{title}}</a></h1>
+			<h1><a href="#paintings/{{objectNumber}}">{{title}}</a></h1>
 			<p>Kunstenaar: {{principalOrFirstMaker}}</p>
 		</article>
 		{{/each}}
 	</script>
 	
 	<script id="detail-template" type="text/x-handlebars-template">
-		<!-- {{#artObjects}} -->
 		<article>
-			<img src="{{webImage.url}}" />
-			<h1>{{title}}</h1>
+			<img src="{{artObject.webImage.url}}" />
+			<h1>{{artObject.title}}</h1>
+			<p>{{artObject.description}}</p>
+
 		</article>
-		<!-- {{/artObjects}} -->
 	</script>
 
 	<script src="static/js/handlebars-v4.0.5.js"></script>

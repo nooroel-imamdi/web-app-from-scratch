@@ -162,6 +162,16 @@ article p{
 img{
 	width: 100%;
 }
+a#back-button,
+a#back-button:visited{
+	display: inline-block;
+	margin: 1em 0 0;
+	color: #d55140;
+	text-decoration: none;
+}
+a#back-button:hover{
+	text-decoration: underline;
+}
 @media only screen and (max-width: 40em) {
 	section#best-practices{
 		width: 70%;

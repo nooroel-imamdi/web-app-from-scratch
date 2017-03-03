@@ -21,9 +21,21 @@
 		</form>
 
 		<p id="search-userinput"></p>
-	</section>
 
-	<section id="overview" class="hide"></section>
+		<!-- <button id="filter">Toon alleen met afbeelding</button> -->
+
+	</section>
+	
+	<section id="overview" class="hide">
+		<form>
+			<label>
+				<input type="checkbox" name="photo" />
+			</label>
+		</form>
+	</section>
+	<section id="filter-output" class="hide">
+		
+	</section>
 	<section id="detail" class="hide"></section>
 	
 	<script id="overview-template" type="text/x-handlebars-template">
@@ -44,6 +56,16 @@
 			<a href="" id="back-button">Terug</a>
 		</article>
 	</script>
+
+	<script id="filter-template" type="text/x-handlebars-template">
+        {{#each myFilter}}
+		<article>
+			<img src="{{webImage.url}}" />
+			<h1 id="resultsfilter"><a href="#paintings/{{objectNumber}}">{{title}}</a></h1>
+			<p>Kunstenaar: {{principalOrFirstMaker}}</p>
+		</article>
+		{{/each}}
+    </script>
 
 	<script src="static/js/handlebars-v4.0.5.js"></script>
 	<script src="static/js/routie.js"></script>

@@ -1,14 +1,16 @@
 (function (){
 	'use strict';
 	var overviewOutput = document.getElementById('overview'),
-    	resultsDetail = document.getElementById('detail');
+    	resultsDetail = document.getElementById('detail'),
+    	filterOption = document.getElementById("filter-output");
+
 
 	var app = {
 		init: function(){
 			routes.routie();
 			collection.get();
 			search.submitEvent();
-		}	
+		}
 	};
 	
 	// var artists = [];
@@ -32,6 +34,7 @@
 		}
 	};
 
+	// searchfield
 	var search = {
 		submitEvent: function(){
 			document.getElementById("search-field").addEventListener("submit", this.field);
@@ -69,8 +72,7 @@
 			       var data = JSON.parse(request.responseText);
 
 			       templates.overview(data);
-
-			       console.log(data);
+			       templates.filter(data);
 
 			   } else {
 			       // We reached our target server, but it returned an error
@@ -96,7 +98,6 @@
 			       var data = JSON.parse(request.responseText);
 					
 					templates.detail(data);
-					console.log(data);
 
 			   } else {
 			       // We reached our target server, but it returned an error
@@ -124,10 +125,10 @@
 
 			var outputArt = document.getElementById("overview");
 			outputArt.innerHTML = ourGeneratedHTML;
+
+          	filterOption.classList.add("hide");
 		},
 		detail: function(data){
-
-			console.log(data);
 			var rawTemplating = document.getElementById("detail-template").innerHTML;
 			var compiledTemplate = Handlebars.compile(rawTemplating);
 			var ourGeneratedHTML = compiledTemplate(data);
@@ -137,8 +138,44 @@
 
 			overviewOutput.classList.add("hide");
           	resultsDetail.classList.remove("hide");
+          	filterOption.classList.add("hide");
 
-		}
+          	
+		},
+        filter: function(data) {
+            var filterCollection = [];
+
+            Object.keys(data).forEach(function (key) {
+                filterCollection.push(data[key]);
+            });
+
+            
+
+            var myFilter = filterCollection.filter(function (obj) {
+                if (obj.hasImage === true) {
+                    return filterCollection;
+                }
+                console.log(obj);
+            });
+            // console.log(myFilter);
+
+            var filterObject = {myFilter};
+
+   //          var rawTemplating = document.getElementById("filter-template").innerHTML;
+			// var compiledTemplate = Handlebars.compile(rawTemplating);
+			// var ourGeneratedHTML = compiledTemplate(data);
+
+			// var outputArt = document.getElementById("filter-output");
+			// outputArt.innerHTML = ourGeneratedHTML;
+
+
+			// overviewOutput.classList.add("hide");
+          	resultsDetail.classList.add("hide");
+          	filterOption.classList.remove("hide");
+
+   
+        }
+        
 	}
 
 	app.init();

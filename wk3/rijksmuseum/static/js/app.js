@@ -67,6 +67,7 @@
 			   if (request.status >= 200 && request.status < 400) {
 			       // Success!
 			       var data = JSON.parse(request.responseText);
+
 			       templates.overview(data);
 
 			       console.log(data);
@@ -95,6 +96,7 @@
 			       var data = JSON.parse(request.responseText);
 					
 					templates.detail(data);
+					console.log(data);
 
 			   } else {
 			       // We reached our target server, but it returned an error

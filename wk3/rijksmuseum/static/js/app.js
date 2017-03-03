@@ -11,8 +11,9 @@
 		}	
 	};
 	
-	var artists = [];
+	// var artists = [];
 	
+
 	var routes = {
 		routie: function(){
 			routie({
@@ -22,19 +23,12 @@
 			    'paintings/:objectNumber': function(objectNumber) {
 			    	
 			    	collection.getPainting(objectNumber);
-
-			    	
-		         //    var painting = artists.find(function (artists) {
-           //  			return artists.id === id;
-          	// 		});
-
-		        	// //console.log(paintings);
-
-		        	// resultsDetail.innerHTML = templates.detail(paintings);
-          	// 		overviewOutput.classList.add("hide");
-          	// 		resultsDetail.classList.remove("hide");
 		        }
 			});
+		},
+		goBack: function(backButton){
+			backButton = document.getElementById("back-button").innerHTML;
+			window.history.back(backButton);
 		}
 	};
 
@@ -45,7 +39,7 @@
 		field: function(){
 			var query = document.getElementById("user-input").value;
 			
-			artists.push(query);
+			// artists.push(query);
 			
 			collection.get(query);
 
@@ -61,7 +55,7 @@
 		}
 	};
 
-
+	// Get data from API
 	var collection = {
 		get: function(query){
 			var request = new window.XMLHttpRequest();
@@ -74,6 +68,8 @@
 			       // Success!
 			       var data = JSON.parse(request.responseText);
 			       templates.overview(data);
+
+			       console.log(data);
 
 			   } else {
 			       // We reached our target server, but it returned an error
@@ -117,6 +113,7 @@
 
 	};
 
+	// Templating
 	var templates = {
 		overview: function(data){
 			var rawTemplating = document.getElementById("overview-template").innerHTML;

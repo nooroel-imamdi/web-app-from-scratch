@@ -18,6 +18,7 @@ Resources:
 
 #Code flow
 
+![alt tag](https://github.com/nooroel-imamdi/web-app-from-scratch/blob/master/wk3/flow.png?raw=true)
 
 #Interaction Diagram
 

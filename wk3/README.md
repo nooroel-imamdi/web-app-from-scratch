@@ -16,6 +16,10 @@ Resources:
 - http://handlebarsjs.com/
 - https://github.com/jgallen23/routie
 
+#Wensenlijstje
+- Schilderij als favoriet selecteren
+- Meer data
+
 #Code flow
 
 ![alt tag](https://github.com/nooroel-imamdi/web-app-from-scratch/blob/master/wk3/flow.png?raw=true)
@@ -30,4 +34,4 @@ Resources:
 
 
 #Live demo
-<!-- http://nooroel.imamovicdesign.com/minor/web-app-from-scratch/wk3 -->
+http://nooroel.imamovicdesign.com/minor/web-app-from-scratch/wk3/

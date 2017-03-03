@@ -20,6 +20,8 @@ Resources:
 
 
 #Interaction Diagram
+![alt tag](https://github.com/nooroel-imamdi/web-app-from-scratch/blob/master/wk3/interaction-flow-uc1.png?raw=true)
+![alt tag](https://github.com/nooroel-imamdi/web-app-from-scratch/blob/master/wk3/interaction-flow-uc2.png?raw=true)
 
 
 #Live demo
